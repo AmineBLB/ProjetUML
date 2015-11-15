@@ -3,6 +3,8 @@ package simpledraw; /**
  * @author Rémi Bastide
  * @version 1.0
  */
+import enregistrement.enregistrementVisitor;
+
 import java.awt.Graphics2D;
 import java.awt.Point;
 
@@ -25,6 +27,8 @@ public abstract class Shape {
 		iAmSelected = selected;
 	}
 
+
+
 	/**
 	 * Draws this shape in a graphics context
 	 * @param g the graphics to draw into
@@ -44,4 +48,6 @@ public abstract class Shape {
 	 * @return true if <code>p</code> inside the shape, false otherwise
 	 */
 	abstract public boolean isPickedBy(Point p);
+
+	abstract public void accept(enregistrementVisitor v);
 }

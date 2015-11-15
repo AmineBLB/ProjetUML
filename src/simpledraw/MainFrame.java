@@ -1,5 +1,8 @@
 package simpledraw;
 
+import enregistrement.JsonEnregistrement;
+import enregistrement.XmlEnregistrement;
+
 import java.awt.AWTEvent;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -7,10 +10,8 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
-import javax.swing.ButtonGroup;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JToggleButton;
+import java.util.List;
+import javax.swing.*;
 
 /**
  * simpledraw.Main Frame of SimpleDraw
@@ -23,14 +24,44 @@ public class MainFrame
 	JToggleButton mySelectButton = new JToggleButton("Select");
 	JToggleButton myLineButton = new JToggleButton("Line");
 	JToggleButton myCircleButton = new JToggleButton("Circle");
-        JToggleButton myGroupingButton = new JToggleButton("Group");
+	JButton myExportXMLButton = new JButton("Export XML");
+	JButton myExportJSONButton = new JButton("Export JSON");
 	DrawingPanel myDrawingPanel = new DrawingPanel();
+
+
 
 	/**Construct the frame*/
 	public MainFrame() {
 		enableEvents(AWTEvent.WINDOW_EVENT_MASK);
 		try {
 			jbInit();
+			myExportXMLButton.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					System.out.print("Bouton clické");
+					List<Shape> mShapes;
+					XmlEnregistrement enregistrement = new XmlEnregistrement();
+					mShapes = Drawing.getMyShapes();
+					for (Shape sh : mShapes)
+						sh.accept(enregistrement);
+
+					enregistrement.export();
+				}
+			});
+			myExportJSONButton.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					System.out.print("Bouton clické");
+					List<Shape> mShapes;
+					JsonEnregistrement js = new JsonEnregistrement();
+
+					mShapes = Drawing.getMyShapes();
+					for (Shape sh : mShapes)
+						sh.accept(js);
+
+					js.export();
+				}
+			});
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -47,20 +78,22 @@ public class MainFrame
 		mySelectButton.setToolTipText("Select and move shapes");
 		myCircleButton.setToolTipText("Draw a simpledraw.Circle");
 		myLineButton.setToolTipText("Draw a simpledraw.Line");
-		myGroupingButton.setToolTipText("Group components");
-                
+		myExportXMLButton.setToolTipText("Export XML");
+		myExportJSONButton.setToolTipText("Export JSON");
+
 		getContentPane().add(buttonPanel, BorderLayout.NORTH);
 		buttonPanel.add(mySelectButton, null);
 		buttonPanel.add(myLineButton, null);
 		buttonPanel.add(myCircleButton, null);
-		buttonPanel.add(myGroupingButton, null);
+		buttonPanel.add(myExportXMLButton, null);
+		buttonPanel.add(myExportJSONButton, null);
 		getContentPane().add(myDrawingPanel, BorderLayout.CENTER);
 
 		ButtonGroup buttonGroup = new ButtonGroup();
 		buttonGroup.add(mySelectButton);
 		buttonGroup.add(myLineButton);
 		buttonGroup.add(myCircleButton);
-		buttonGroup.add(myGroupingButton);
+		//buttonGroup.add(myExportXMLButton);
 
 		setSize(new Dimension(400, 300));
 		setTitle("Simple Draw");
@@ -88,13 +121,13 @@ public class MainFrame
 			}
 		}
 		);
-                
-                myGroupingButton.addActionListener(
-			new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				myDrawingPanel.activateGroupingTool();
-			}
-		}
+
+		myExportXMLButton.addActionListener(
+				new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						//myDrawingPanel.activateGroupingTool();
+					}
+				}
 		);
 	}
 

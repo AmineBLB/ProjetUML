@@ -4,6 +4,8 @@ package simpledraw;/*
  * and open the template in the editor.
  */
 
+import enregistrement.enregistrementVisitor;
+
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.ArrayList;
@@ -13,6 +15,10 @@ import java.util.ArrayList;
  * @author boulbamo
  */
 public class ShapeGroup extends Shape {
+
+    public ArrayList<Shape> getLshape() {
+        return lshape;
+    }
 
     private ArrayList<Shape> lshape = new ArrayList<Shape>();
 
@@ -98,8 +104,13 @@ public class ShapeGroup extends Shape {
         }
         return false;
     }
-    
-    
+
+    @Override
+    public void accept(enregistrementVisitor v) {
+        v.visit(this);
+    }
+
+
     public void removeAll(){
     lshape.clear();}
 

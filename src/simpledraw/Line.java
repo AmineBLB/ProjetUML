@@ -4,9 +4,9 @@ package simpledraw; /**
  * @version 1.0
  */
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Point;
+import enregistrement.enregistrementVisitor;
+
+import java.awt.*;
 
 public class Line
 	extends Shape {
@@ -22,6 +22,8 @@ public class Line
 		myStart = start;
 		myEnd = end;
 	}
+
+
 
 	public void draw(Graphics2D g) {
 		g.setColor(
@@ -40,6 +42,8 @@ public class Line
 	public boolean isPickedBy(Point p) {
 		return Line.segmentIsPickedBy(myStart, myEnd, p);
 	}
+
+
 
 	/**
 	 * A Utility function that determines whether a point is in a segment.
@@ -78,4 +82,11 @@ public class Line
 	public Point getMyEnd() {
 		return myEnd;
 	}
+
+	public void accept(enregistrementVisitor v) {
+		v.visit(this);
+	}
+
+
+
 }

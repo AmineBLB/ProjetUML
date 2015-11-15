@@ -1,8 +1,8 @@
 package simpledraw;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Point;
+import enregistrement.enregistrementVisitor;
+
+import java.awt.*;
 
 /**
  * A circle
@@ -32,6 +32,7 @@ public class Circle
 		myRadius = radius;
 	}
 
+
 	public void draw(Graphics2D g) {
 		g.setColor(
 			isSelected() ?
@@ -51,5 +52,19 @@ public class Circle
 
 	public boolean isPickedBy(Point p) {
 		return (Math.abs(myCenter.distance(p) - myRadius) <= 2);
+	}
+
+
+
+	public void setMyCenter(Point myCenter) {
+		this.myCenter = myCenter;
+	}
+
+	public void setMyRadius(int myRadius) {
+		this.myRadius = myRadius;
+	}
+
+	public void accept(enregistrementVisitor v) {
+		v.visit(this);
 	}
 }

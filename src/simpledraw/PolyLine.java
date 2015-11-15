@@ -1,13 +1,12 @@
 package simpledraw;
 
+import enregistrement.enregistrementVisitor;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Point;
 
 public class PolyLine
 	extends Shape {
@@ -24,6 +23,16 @@ public class PolyLine
 		myPoints = new ArrayList<Point>(points);
 	}
 
+	public List<Point> getMyPoints() {
+		return myPoints;
+	}
+
+	public void accept(enregistrementVisitor v) {
+		v.visit(this);
+	}
+
+
+
 	public void translateBy(int dx, int dy) {
 		Iterator i = myPoints.iterator();
 		while (i.hasNext()) {
@@ -31,6 +40,7 @@ public class PolyLine
 			p.translate(dx, dy);
 		}
 	}
+
 
 	public void draw(Graphics2D g) {
 		g.setColor(
@@ -69,7 +79,5 @@ public class PolyLine
 	}
 
 
-	public List<Point> getMyPoints() {
-		return myPoints;
-	}
+
 }
