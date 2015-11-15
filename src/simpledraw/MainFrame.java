@@ -10,8 +10,10 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
-import java.util.List;
-import javax.swing.*;
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JToggleButton;
 
 /**
  * simpledraw.Main Frame of SimpleDraw
@@ -19,16 +21,14 @@ import javax.swing.*;
  * @version 1.0
  */
 
-public class MainFrame
-	extends JFrame {
+public class MainFrame extends JFrame {
 	JToggleButton mySelectButton = new JToggleButton("Select");
 	JToggleButton myLineButton = new JToggleButton("Line");
 	JToggleButton myCircleButton = new JToggleButton("Circle");
 	JButton myExportXMLButton = new JButton("Export XML");
 	JButton myExportJSONButton = new JButton("Export JSON");
 	DrawingPanel myDrawingPanel = new DrawingPanel();
-
-
+	DrawingPanel myTextPanel = new DrawingPanel();
 
 	/**Construct the frame*/
 	public MainFrame() {
@@ -88,6 +88,7 @@ public class MainFrame
 		buttonPanel.add(myExportXMLButton, null);
 		buttonPanel.add(myExportJSONButton, null);
 		getContentPane().add(myDrawingPanel, BorderLayout.CENTER);
+		getContentPane().add(myTextPanel);
 
 		ButtonGroup buttonGroup = new ButtonGroup();
 		buttonGroup.add(mySelectButton);
@@ -98,8 +99,7 @@ public class MainFrame
 		setSize(new Dimension(400, 300));
 		setTitle("Simple Draw");
 
-		mySelectButton.addActionListener(
-			new ActionListener() {
+		mySelectButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				myDrawingPanel.activateSelectionTool();
 			}
@@ -119,6 +119,13 @@ public class MainFrame
 			public void actionPerformed(ActionEvent e) {
 				myDrawingPanel.activateCircleTool();
 			}
+		});
+
+		myGroupingButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				myDrawingPanel.activateGroupingTool();
+			}
+		});
 		}
 		);
 

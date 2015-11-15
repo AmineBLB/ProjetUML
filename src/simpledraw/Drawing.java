@@ -10,8 +10,7 @@ import java.util.*;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
-public class Drawing {
-
+public class Drawing extends Observable {
 	/**
 	 * A drawing is a collection of shapes
 	 */
@@ -30,9 +29,8 @@ public class Drawing {
 	 * Displays the drawing
 	 * @param g     The Graphics to display on
 	 **/
-
 	public void draw(Graphics2D g) {
-		for(Shape s : myShapes)
+		for (Shape s : myShapes)
 			s.draw(g);
 	}
 
@@ -42,11 +40,17 @@ public class Drawing {
 	 **/
 	public void addShape(Shape s) {
 		myShapes.add(s);
+		
+		//mvc
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
 	 * Delete a shape from the simpledraw.Drawing
-	 * @param s     The simpledraw.Shape to delete
+	 * 
+	 * @param s
+	 *            The simpledraw.Shape to delete
 	 **/
 	public void deleteShape(Shape s) {
 		myShapes.remove(s);
