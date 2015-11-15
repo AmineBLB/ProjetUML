@@ -15,6 +15,7 @@ import java.awt.event.MouseEvent;
 public class SelectionTool extends DrawingTool {
 
 	private Shape mySelectedShape = null;
+
 	private ShapeGroup pickedShapeGroup = new ShapeGroup();
 
 	private Point myLastPoint;
@@ -39,34 +40,33 @@ public class SelectionTool extends DrawingTool {
 
 	public void mousePressed(MouseEvent e) {
 		if (!e.isShiftDown()) {
-
-			// pickedShapeGroup.removeAll();
-			// pickedShapeGroup.setSelected(false);
 			Shape pickedShape = myDrawing.pickShapeAt(e.getPoint());
 			myLastPoint = e.getPoint();
 			if (mySelectedShape != null) {
 				mySelectedShape.setSelected(false);
 			}
-			mySelectedShape = pickedShape;
-			if (mySelectedShape != null) {
 
+			mySelectedShape = pickedShape;
+
+			if (mySelectedShape != null) {
 				pickedShapeGroup.setSelected(false);
 				pickedShapeGroup.removeAll();
 				mySelectedShape.setSelected(true);
 				myPanel.setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
 
-			}else {
+			} else {
 
 				pickedShapeGroup.setSelected(false);
 				pickedShapeGroup.removeAll();
 			}
+
 			myPanel.repaint();
 		} else {
-			
+
 			if (mySelectedShape != null) {
 				mySelectedShape.setSelected(false);
 			}
-			
+
 			Shape pickedShape = myDrawing.pickShapeAt(e.getPoint());
 			if (pickedShape != null) {
 				if (!pickedShapeGroup.Contains(pickedShape)) {
@@ -76,8 +76,8 @@ public class SelectionTool extends DrawingTool {
 					myPanel.setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
 					myPanel.repaint();
 				} else {
-					pickedShapeGroup.setSelected(false);
-					pickedShapeGroup.deGroup(pickedShape);
+					// pickedShapeGroup.setSelected(false);
+					// pickedShapeGroup.deGroup(pickedShape);
 					pickedShapeGroup.setSelected(true);
 					myLastPoint = e.getPoint();
 					myPanel.setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
@@ -88,6 +88,7 @@ public class SelectionTool extends DrawingTool {
 				pickedShapeGroup.setSelected(false);
 				pickedShapeGroup.removeAll();
 			}
+			myPanel.repaint();
 
 		}
 
