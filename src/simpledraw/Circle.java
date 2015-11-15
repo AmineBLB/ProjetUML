@@ -13,8 +13,17 @@ public class Circle
 	private Point myCenter;
 	private int myRadius;
 
+	public Point getMyCenter() {
+		return myCenter;
+	}
+
+	public int getMyRadius() {
+		return myRadius;
+	}
+
 	/**
 	 * Construct a simpledraw.Circle
+
 	 * @param center        The center of the circle
 	 * @param radius        The radius of the circle
 	 **/

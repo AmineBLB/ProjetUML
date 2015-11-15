@@ -70,4 +70,12 @@ public class Line
 		}
 		return (distance <= 2) && (lambda >= 0) && (lambda <= 1);
 	}
+
+	public Point getMyStart() {
+		return myStart;
+	}
+
+	public Point getMyEnd() {
+		return myEnd;
+	}
 }

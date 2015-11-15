@@ -4,6 +4,10 @@ package shapeVisitor;/*
  * and open the template in the editor.
  */
 
+import simpledraw.Circle;
+import simpledraw.Line;
+import simpledraw.PolyLine;
+
 import java.awt.Point;
 import java.util.Iterator;
 

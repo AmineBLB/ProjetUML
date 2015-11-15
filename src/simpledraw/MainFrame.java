@@ -21,8 +21,8 @@ import javax.swing.JToggleButton;
 public class MainFrame
 	extends JFrame {
 	JToggleButton mySelectButton = new JToggleButton("Select");
-	JToggleButton myLineButton = new JToggleButton("simpledraw.Line");
-	JToggleButton myCircleButton = new JToggleButton("simpledraw.Circle");
+	JToggleButton myLineButton = new JToggleButton("Line");
+	JToggleButton myCircleButton = new JToggleButton("Circle");
         JToggleButton myGroupingButton = new JToggleButton("Group");
 	DrawingPanel myDrawingPanel = new DrawingPanel();
 
@@ -47,20 +47,20 @@ public class MainFrame
 		mySelectButton.setToolTipText("Select and move shapes");
 		myCircleButton.setToolTipText("Draw a simpledraw.Circle");
 		myLineButton.setToolTipText("Draw a simpledraw.Line");
-                myGroupingButton.setToolTipText("Group components");
+		myGroupingButton.setToolTipText("Group components");
                 
 		getContentPane().add(buttonPanel, BorderLayout.NORTH);
 		buttonPanel.add(mySelectButton, null);
 		buttonPanel.add(myLineButton, null);
 		buttonPanel.add(myCircleButton, null);
-                buttonPanel.add(myGroupingButton, null);
+		buttonPanel.add(myGroupingButton, null);
 		getContentPane().add(myDrawingPanel, BorderLayout.CENTER);
 
 		ButtonGroup buttonGroup = new ButtonGroup();
 		buttonGroup.add(mySelectButton);
 		buttonGroup.add(myLineButton);
 		buttonGroup.add(myCircleButton);
-                buttonGroup.add(myGroupingButton);
+		buttonGroup.add(myGroupingButton);
 
 		setSize(new Dimension(400, 300));
 		setTitle("Simple Draw");
