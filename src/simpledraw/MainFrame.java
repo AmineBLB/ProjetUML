@@ -1,3 +1,5 @@
+package simpledraw;
+
 import java.awt.AWTEvent;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -11,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
 /**
- * Main Frame of SimpleDraw
+ * simpledraw.Main Frame of SimpleDraw
  * @author Rémi Bastide
  * @version 1.0
  */
@@ -19,8 +21,8 @@ import javax.swing.JToggleButton;
 public class MainFrame
 	extends JFrame {
 	JToggleButton mySelectButton = new JToggleButton("Select");
-	JToggleButton myLineButton = new JToggleButton("Line");
-	JToggleButton myCircleButton = new JToggleButton("Circle");
+	JToggleButton myLineButton = new JToggleButton("simpledraw.Line");
+	JToggleButton myCircleButton = new JToggleButton("simpledraw.Circle");
         JToggleButton myGroupingButton = new JToggleButton("Group");
 	DrawingPanel myDrawingPanel = new DrawingPanel();
 
@@ -43,8 +45,8 @@ public class MainFrame
 
 		mySelectButton.setSelected(true);
 		mySelectButton.setToolTipText("Select and move shapes");
-		myCircleButton.setToolTipText("Draw a Circle");
-		myLineButton.setToolTipText("Draw a Line");
+		myCircleButton.setToolTipText("Draw a simpledraw.Circle");
+		myLineButton.setToolTipText("Draw a simpledraw.Line");
                 myGroupingButton.setToolTipText("Group components");
                 
 		getContentPane().add(buttonPanel, BorderLayout.NORTH);

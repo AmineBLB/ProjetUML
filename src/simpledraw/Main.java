@@ -1,5 +1,5 @@
-/**
- * Main program of SimpleDraw
+package simpledraw; /**
+ * simpledraw.Main program of SimpleDraw
  * @author Rémi Bastide
  * @version 1.0
  */
@@ -44,7 +44,7 @@ public class Main {
 
 	}
 
-	/**Main method*/
+	/**simpledraw.Main method*/
 	public static void main(String[] args) {
 		new Main();
 	}

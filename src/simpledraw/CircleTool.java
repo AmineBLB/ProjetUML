@@ -1,4 +1,4 @@
-/**
+package simpledraw; /**
  * The tool to create circles
  **/
 

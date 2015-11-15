@@ -1,10 +1,12 @@
+package simpledraw;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JPanel;
 
 /**
- * A Panel that displays a Drawing, and maintains a current DrawingTool<BR>
+ * A Panel that displays a simpledraw.Drawing, and maintains a current simpledraw.DrawingTool<BR>
  * Uses the "State" design pattern
  * @author Rémi Bastide
  * @version 1.0

@@ -1,5 +1,5 @@
-/**
- * The Shape abstract class, super-class of all Shapes
+package simpledraw; /**
+ * The simpledraw.Shape abstract class, super-class of all Shapes
  * @author Rémi Bastide
  * @version 1.0
  */

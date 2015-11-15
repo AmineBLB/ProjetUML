@@ -1,6 +1,8 @@
 package shapeVisitor;
 
 
+import simpledraw.*;
+
 import java.awt.Point;
 import java.util.Iterator;
 

@@ -1,3 +1,5 @@
+package simpledraw;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -6,19 +8,18 @@ import java.util.List;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.Rectangle;
 
 public class PolyLine
 	extends Shape {
 	/**
-	 * The points of this PolyLine
+	 * The points of this simpledraw.PolyLine
 	 */
 	private final List<Point> myPoints;
 
 	public PolyLine(Collection<Point> points) {
 		if (points.size() < 2) {
 			throw new IllegalArgumentException(
-				"A PolyLine needs at least 2 Points");
+				"A simpledraw.PolyLine needs at least 2 Points");
 		}
 		myPoints = new ArrayList<Point>(points);
 	}

@@ -1,3 +1,5 @@
+package simpledraw;
+
 import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -5,7 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 /**
- * The tool to select, move and delete Shapes in the Drawing
+ * The tool to select, move and delete Shapes in the simpledraw.Drawing
  *
  * @author Rémi Bastide
  * @version 1.0

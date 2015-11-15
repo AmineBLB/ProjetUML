@@ -1,5 +1,5 @@
-/**
- * Drawing, a collection of Shapes
+package simpledraw; /**
+ * simpledraw.Drawing, a collection of Shapes
  * @author Rémi Bastide
  * @version 1.0
  * @see simpledraw.Shape
@@ -29,25 +29,25 @@ public class Drawing {
 	}
 
 	/**
-	 * Add a shape to the Drawing
-	 * @param s     The Shape to add
+	 * Add a shape to the simpledraw.Drawing
+	 * @param s     The simpledraw.Shape to add
 	 **/
 	public void addShape(Shape s) {
 		myShapes.add(s);
 	}
 
 	/**
-	 * Delete a shape from the Drawing
-	 * @param s     The Shape to delete
+	 * Delete a shape from the simpledraw.Drawing
+	 * @param s     The simpledraw.Shape to delete
 	 **/
 	public void deleteShape(Shape s) {
 		myShapes.remove(s);
 	}
 
 	/**
-	 * Determines whether the given Point lies whithin a Shape
+	 * Determines whether the given Point lies whithin a simpledraw.Shape
 	 * @param p     The Point to test
-	 * @return      A Shape selected by this Point or null if no Shape is there
+	 * @return      A simpledraw.Shape selected by this Point or null if no simpledraw.Shape is there
 	 **/
 	public Shape pickShapeAt(Point p) {
 		Shape result = null;
@@ -60,7 +60,7 @@ public class Drawing {
 	}
 
 	/**
-	 * Ensures that no Shape is currently selected
+	 * Ensures that no simpledraw.Shape is currently selected
 	 */
 	public void clearSelection() {
 		for (Shape s : myShapes)

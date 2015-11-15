@@ -1,3 +1,5 @@
+package simpledraw;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -17,8 +19,8 @@ import javax.swing.JToggleButton;
 public class DrawApplet
 	extends JApplet {
 	JToggleButton mySelectButton = new JToggleButton("Select");
-	JToggleButton myLineButton = new JToggleButton("Line");
-	JToggleButton myCircleButton = new JToggleButton("Circle");
+	JToggleButton myLineButton = new JToggleButton("simpledraw.Line");
+	JToggleButton myCircleButton = new JToggleButton("simpledraw.Circle");
 	DrawingPanel myDrawingPanel = new DrawingPanel();
 
 	/**Construct the applet*/
@@ -33,8 +35,8 @@ public class DrawApplet
 
 		mySelectButton.setSelected(true);
 		mySelectButton.setToolTipText("Select and move shapes");
-		myCircleButton.setToolTipText("Draw a Circle");
-		myLineButton.setToolTipText("Draw a Line");
+		myCircleButton.setToolTipText("Draw a simpledraw.Circle");
+		myLineButton.setToolTipText("Draw a simpledraw.Line");
 
 		getContentPane().add(buttonPanel, BorderLayout.NORTH);
 		buttonPanel.add(mySelectButton, null);

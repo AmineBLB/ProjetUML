@@ -1,4 +1,4 @@
-/**
+package simpledraw; /**
  * A Segement of a line, that extends between two points
  * @author Rémi Bastide
  * @version 1.0
@@ -50,7 +50,7 @@ public class Line
 	 **/
 	public static boolean segmentIsPickedBy(Point A, Point B, Point C) {
 		double a, b;
-		double distance; // Distance from C to Line AB
+		double distance; // Distance from C to simpledraw.Line AB
 		double dx, dy; // Coordinates of projection of C on AB
 		double lambda;
 

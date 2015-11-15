@@ -1,3 +1,5 @@
+package simpledraw;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -12,7 +14,7 @@ public class Circle
 	private int myRadius;
 
 	/**
-	 * Construct a Circle
+	 * Construct a simpledraw.Circle
 	 * @param center        The center of the circle
 	 * @param radius        The radius of the circle
 	 **/
