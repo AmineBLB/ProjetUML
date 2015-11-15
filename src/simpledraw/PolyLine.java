@@ -69,5 +69,7 @@ public class PolyLine
 	}
 
 
-
+	public List<Point> getMyPoints() {
+		return myPoints;
+	}
 }
