@@ -53,7 +53,7 @@ public class DrawApplet
 		buttonGroup.add(myCircleButton);
 		//buttonGroup.add(myExporXMLtButton);
 
-		setSize(new Dimension(400, 300));
+		setSize(new Dimension(500, 400));
 
 		mySelectButton.addActionListener(
 			new ActionListener() {
