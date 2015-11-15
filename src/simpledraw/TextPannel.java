@@ -19,48 +19,45 @@ import javax.swing.JPanel;
  * @see simpledraw.DrawingTool
  */
 
-public class DrawingPanel extends JPanel implements Observer {
-	DrawingTool myCurrentTool;
-	Drawing myDrawing = new Drawing();
+public class TextPannel extends JPanel implements Observer {
+	Text text = new Text();
 
-	public DrawingPanel() {
+	public TextPannel() {
 		super();
 		setBackground(java.awt.Color.white);
-		myCurrentTool = new SelectionTool(this);
-		activate(myCurrentTool);
 		//mvc
-		myDrawing.addObserver(this);
+		text.addObserver(this);
 	}
 
 	void activateSelectionTool() {
-		terminate(myCurrentTool);
+		/*terminate(myCurrentTool);
 		myCurrentTool = new SelectionTool(this);
-		activate(myCurrentTool);
+		activate(myCurrentTool);*/
 	}
 
 	void activateCircleTool() {
-		terminate(myCurrentTool);
+		/*terminate(myCurrentTool);
 		myCurrentTool = new CircleTool(this);
 		activate(myCurrentTool);
 		myDrawing.clearSelection();
-		repaint();
+		repaint();*/
 	}
 
 	void activateLineTool() {
-		terminate(myCurrentTool);
+		/*terminate(myCurrentTool);
 		myCurrentTool = new LineTool(this);
 		activate(myCurrentTool);
 		myDrawing.clearSelection();
-		repaint();
+		repaint();*/
 	}
 
 	// TODO
 	void activateGroupingTool() {
-		terminate(myCurrentTool);
+	/*	terminate(myCurrentTool);
 		myCurrentTool = new GroupingTool(this);
 		activate(myCurrentTool);
 		myDrawing.clearSelection();
-		repaint();
+		repaint();*/
 	}
 
 	public void paintComponent(Graphics g) {
@@ -68,8 +65,7 @@ public class DrawingPanel extends JPanel implements Observer {
 		Graphics2D g2 = (Graphics2D) g;
 		RenderingHints qualityHints = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2.setRenderingHints(qualityHints);
-		myDrawing.draw(g2);
-		myCurrentTool.draw(g2);
+	
 	}
 
 	private void terminate(DrawingTool t) {

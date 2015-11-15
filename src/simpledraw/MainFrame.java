@@ -14,30 +14,30 @@ import javax.swing.JToggleButton;
 
 /**
  * simpledraw.Main Frame of SimpleDraw
+ * 
  * @author Rémi Bastide
  * @version 1.0
  */
 
-public class MainFrame
-	extends JFrame {
+public class MainFrame extends JFrame {
 	JToggleButton mySelectButton = new JToggleButton("Select");
 	JToggleButton myLineButton = new JToggleButton("Line");
 	JToggleButton myCircleButton = new JToggleButton("Circle");
-        JToggleButton myGroupingButton = new JToggleButton("Group");
+	JToggleButton myGroupingButton = new JToggleButton("Group");
 	DrawingPanel myDrawingPanel = new DrawingPanel();
+	DrawingPanel myTextPanel = new DrawingPanel();
 
-	/**Construct the frame*/
+	/** Construct the frame */
 	public MainFrame() {
 		enableEvents(AWTEvent.WINDOW_EVENT_MASK);
 		try {
 			jbInit();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	/**Component initialization*/
+	/** Component initialization */
 	private void jbInit() throws Exception {
 		getContentPane().setLayout(new BorderLayout());
 		JPanel buttonPanel = new JPanel();
@@ -48,13 +48,14 @@ public class MainFrame
 		myCircleButton.setToolTipText("Draw a simpledraw.Circle");
 		myLineButton.setToolTipText("Draw a simpledraw.Line");
 		myGroupingButton.setToolTipText("Group components");
-                
+
 		getContentPane().add(buttonPanel, BorderLayout.NORTH);
 		buttonPanel.add(mySelectButton, null);
 		buttonPanel.add(myLineButton, null);
 		buttonPanel.add(myCircleButton, null);
 		buttonPanel.add(myGroupingButton, null);
 		getContentPane().add(myDrawingPanel, BorderLayout.CENTER);
+		getContentPane().add(myTextPanel);
 
 		ButtonGroup buttonGroup = new ButtonGroup();
 		buttonGroup.add(mySelectButton);
@@ -65,40 +66,32 @@ public class MainFrame
 		setSize(new Dimension(400, 300));
 		setTitle("Simple Draw");
 
-		mySelectButton.addActionListener(
-			new ActionListener() {
+		mySelectButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				myDrawingPanel.activateSelectionTool();
 			}
-		}
-		);
+		});
 
-		myLineButton.addActionListener(
-			new ActionListener() {
+		myLineButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				myDrawingPanel.activateLineTool();
 			}
-		}
-		);
+		});
 
-		myCircleButton.addActionListener(
-			new ActionListener() {
+		myCircleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				myDrawingPanel.activateCircleTool();
 			}
-		}
-		);
-                
-                myGroupingButton.addActionListener(
-			new ActionListener() {
+		});
+
+		myGroupingButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				myDrawingPanel.activateGroupingTool();
 			}
-		}
-		);
+		});
 	}
 
-	/**Overridden so we can exit when window is closed*/
+	/** Overridden so we can exit when window is closed */
 	protected void processWindowEvent(WindowEvent e) {
 		super.processWindowEvent(e);
 		if (e.getID() == WindowEvent.WINDOW_CLOSING) {

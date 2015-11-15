@@ -12,14 +12,15 @@ import java.util.*;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
-public class Drawing extends Observable {
+import javax.swing.JLabel;
+
+public class Text extends Observable {
 	/**
 	 * A drawing is a collection of shapes
 	 */
-	private List<Shape> myShapes = new LinkedList<Shape>();
-	
+	private List<String> myText = new LinkedList<String>();
 
-	public Drawing() {
+	public Text() {
 	}
 
 	/**
@@ -28,9 +29,9 @@ public class Drawing extends Observable {
 	 * @param g
 	 *            The Graphics to display on
 	 **/
-	public void draw(Graphics2D g) {
-		for (Shape s : myShapes)
-			s.draw(g);
+	public void draw() {
+		for (String s : myText)
+			System.out.println(" ");
 	}
 
 	/**
@@ -39,10 +40,10 @@ public class Drawing extends Observable {
 	 * @param s
 	 *            The simpledraw.Shape to add
 	 **/
-	public void addShape(Shape s) {
-		myShapes.add(s);
-		
-		//mvc
+	public void addShape(String s) {
+		myText.add(s);
+
+		// mvc
 		setChanged();
 		notifyObservers();
 	}
@@ -53,8 +54,8 @@ public class Drawing extends Observable {
 	 * @param s
 	 *            The simpledraw.Shape to delete
 	 **/
-	public void deleteShape(Shape s) {
-		myShapes.remove(s);
+	public void deleteShape(String s) {
+		myText.remove(s);
 	}
 
 	/**
@@ -66,20 +67,20 @@ public class Drawing extends Observable {
 	 *         simpledraw.Shape is there
 	 **/
 	public Shape pickShapeAt(Point p) {
-		Shape result = null;
-		for (Shape s : myShapes)
-			if (s.isPickedBy(p)) {
-				result = s;
-				break;
-			}
-		return result;
+		/*
+		 * String result = null; for (String s : myText) if (s.isPickedBy(p)) {
+		 * result = s; break; } return result;
+		 */
+		return null;
 	}
 
 	/**
 	 * Ensures that no simpledraw.Shape is currently selected
 	 */
 	public void clearSelection() {
-		for (Shape s : myShapes)
-			s.setSelected(false);
+		/*
+		 * for (String s : myShapes) s.setSelected(false);
+		 */
+		myText.clear();
 	}
 }
